@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+
+  #home page
+  get '/', to: 'sessions#home'
+  get '/signin', to: 'sessions#new'
+  post '/signin', to: 'sessions#create'
+
+  get '/logout' => 'sessions#destroy'
+  post '/logout' => 'sessions#destroy'
+
   resources :travel_destinations
   resources :users
 
-  #home page
-  get "/" to: users#home
 
 
 
