@@ -5,7 +5,14 @@ class UsersController < ApplicationController
     end
 
     def show
-    
+        @user = current_user
+
+         if params[:id].to_i == @user.id
+         else
+            flash.now[:notice] = "not auth"
+            redirect_to '/'
+         end
+        
     end
 
     def new

@@ -8,8 +8,8 @@ Models
     * name
 
 <!-- - budget => plans? => accomedations? => location -->
-- price
-    * price
+- locations
+    * name
 
 
     Client Id

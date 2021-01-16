@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
 
-  get '/logout' => 'sessions#destroy'
-  post '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
+  # post '/logout' => 'sessions#destroy'
 
-  resources :travel_destinations
-  resources :users
+  
+  resources :users do 
+    resources :travel_destinations, only: [:index, :new, :create]
+  end
+
+  resources :travel_destinations, only: [:show, :update, :destroy]
 
 
 
