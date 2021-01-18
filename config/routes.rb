@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
 
-  #home page
+  # Sessions contoller
   get '/', to: 'sessions#home'
+
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
 
   delete '/logout' => 'sessions#destroy'
-  # post '/logout' => 'sessions#destroy'
 
   
-  resources :users do 
-    resources :travel_destinations, only: [:index, :new, :create]
+  resources :users, only: [:new, :create, :show] do
+    resources :locations, only: [:index, :show, :new]
   end
 
-  resources :travel_destinations, only: [:show, :update, :destroy]
+  resources :travel_destinations 
 
 
 
