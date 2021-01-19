@@ -10,10 +10,8 @@ Rails.application.routes.draw do
 
   
   resources :users, only: [:new, :create, :show] do
-    resources :locations, only: [:index, :show, :new]
+    resources :locations, only: [:show, :new, :create]
   end
-
-  resources :travel_destinations 
 
 
 

@@ -1,0 +1,4 @@
+<%= form_for([current_user, @location], local: true) do |f| %>
+    Name of Country: <%= f.text_field :name %>
+    <%= f.submit %>
+<% end %>
