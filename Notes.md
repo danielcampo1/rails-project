@@ -1,20 +1,54 @@
 Models
 
 - User
-    has many => locations
-    has many => travel destinations thru location
+    has many => destination
+    has many => # thru location
     * username
     * password
 
-- locations(country)
-    belongs to users
-    belongs to travel destination
+- destination(personal side)
+    belongs to => users
+    belongs to => country
     * name
+    * time of year of visit
+    * excursion
+
+
+- countries
+    has many => destination
+    has many => user through destination
+    *  name
+    *  description
+    *  culture
+    *  economy
     
-- Travel destination(city)
-    has many => locations
-    has many => users thru locations
-    * name
+    
+    # user creates the crud for the destinations
+    # form for destiantion
+        *countries
+- 
+   
+
+
+-------
+- user 
+    has many 
+-------
+- user
+    has many => lists
+    has many => travel destiantion
+    has many => items through lists
+
+- list (countries to visit)
+    belongs_to => users
+    has many => travel Dest through user
+
+-items
+    belongs to travel destination
+
+- travel destination (places to visit inside country)
+    has many => item
+    has many => list through user
 
 
 
