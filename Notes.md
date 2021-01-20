@@ -1,15 +1,25 @@
 Models
 
 - User
+    has many => locations
+    has many => travel destinations thru location
     * username
     * password
+
+- locations(country)
+    belongs to users
+    belongs to travel destination
+    * name
     
-- Travel destination
+- Travel destination(city)
+    has many => locations
+    has many => users thru locations
     * name
 
-<!-- - budget => plans? => accomedations? => location -->
-- locations
-    * name
+
+
+
+
 
 
     Client Id
