@@ -2,7 +2,7 @@ Models
 
 - User
     has many => destination
-    has many => # thru location
+    has many => #contries thru destination
     * username
     * password
 

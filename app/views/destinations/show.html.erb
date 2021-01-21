@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Users_destination show</h2>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Country</th>
+    <th>Destination</th>
+    <th colspan="1"></th>
+  </tr>
+  <tr>
+    <td><%= @destination.user.username %></td>
+    <td><%= @destination.country.name %> </td>
+    <td>
+        <ul>
+            <p><li> <%= @destination.excursion %> </li></p>
+            <p><li> <%= @destination.time_of_visit %> </li></p>
+            <p><li> <%= @destination.best_moment %> </li></p>
+        </ul>
+    </td>
+    <td colspan="1"> <%= link_to "edit", edit_user_destination_path(@destination) %></td>
+
+  </tr>
+  
+</table>
+
+</body>
+</html>

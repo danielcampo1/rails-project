@@ -1,41 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 50%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-
-<h2>Users locations</h2>
-
-<table>
-  <tr>
-    <th>location</th>
-    <th>destination</th>
-    <th>link</th>
-  </tr>
-  <tr>
-    <td>#username</td>
-    <td>#location</td>
-    <td>#link</td>
-  </tr>
-  
-</table>
-
-</body>
-</html>
+<%= form_for([current_user, @destination], local: true) do |f| %>
+    Name of Country:  <%= f.collection_select :country_id, Country.all, :id, :name, prompt: true %>
+    Excursion: <%= f.text_field :excursion %>
+    Time of visit: <%= f.text_field :time_of_visit %>
+    best moment: <%= f.text_field :best_moment %>
+    <%= f.submit %>
+<% end %>
