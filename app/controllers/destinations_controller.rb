@@ -25,9 +25,10 @@ class DestinationsController < ApplicationController
     end
 
     def update
+
         @destination = Destination.find_by(id: params[:id])
         @destination.update(destination_params)
-        redirect_to user_destination_path(current_user, @destination)
+        redirect_to user_destination_path(@destination)
     end
 
 

@@ -21,11 +21,28 @@ class SessionsController < ApplicationController
         end
     end
 
+    def github
+        @user = User.github_omniauth(auth)
+        
+        if @user.valid?
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        else 
+            render :home
+        end
+    end
+
     def destroy
             if current_user
                 session.delete :user_id
                 redirect_to '/'
             end
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
     end
 
 end
