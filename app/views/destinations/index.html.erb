@@ -31,19 +31,21 @@ tr:nth-child(even) {
     <th colspan="1"></th>
   </tr>
   <tr>
-    <td><%= @destination.user.username %></td>
-    <td><%= @destination.country.name %> </td>
+      <% @destinations.each do |e|%>
+    <td><%= e.user.username %></td>
+    <td><%= e.country.name %> </td>
     <td>
         <ul>
-            <p><li> <%= @destination.excursion %> </li></p>
-            <p><li> <%= @destination.time_of_visit %> </li></p>
-            <p><li> <%= @destination.best_moment %> </li></p>
+            <p><li> <%= e.excursion %> </li></p>
+            <p><li> <%= e.time_of_visit %> </li></p>
+            <p><li> <%= e.best_moment %> </li></p>
         </ul>
     </td>
-    <td colspan="1"> <%= link_to "edit", edit_user_destination_path(@destination) %></td>
-
+    <td colspan="1">
+    <% if current_user == e.user %>  <%= link_to "edit", edit_user_destination_path(current_user,e) %></td>
+    <%end%>
   </tr>
-  
+  <% end %>
 </table>
 
 </body>
