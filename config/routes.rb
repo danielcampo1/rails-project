@@ -12,9 +12,8 @@ Rails.application.routes.draw do
     resources :destinations, except: [:destroy]
   end
 
-  # get '/countries', to: 'countries#index'
-  get '/countries', to: "countries#assign"
-   get '/country', to: "countries#show"
+
+  get '/countries', to: "countries#index"
 
    match '/auth/github/callback', to: 'sessions#github', via: [:get, :post]
 

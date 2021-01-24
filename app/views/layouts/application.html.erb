@@ -8,12 +8,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-    <%= link_to "Home", root_path %>
   <nav>
       <% if logged_in? %>
-        <%= link_to "Logout", logout_path, method: "delete" %>  <%= link_to "Add destination", new_user_destination_path(current_user) %>    <%= link_to "check out where others have traveled", countries_path %>
+        <%= link_to "Logout", logout_path, method: "delete" %> <br>
+        <%= link_to "Add destination", new_user_destination_path(current_user) %> <br>
+        <%= link_to "General information from country", countries_path %>
       <% else %>
-        <%= link_to "Sign in", signin_path %> <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Sign in", signin_path %><br>
+        <%= link_to "Sign up", new_user_path %><br>
+        <%= link_to "Sign In W/ GITHUB", '/auth/github', method: :post %>
+
         <% end %>
     </nav>
 

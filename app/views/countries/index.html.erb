@@ -1,0 +1,10 @@
+<h2> know fun facts about the Country you want to visit. </h2>
+
+<% @country.each do |c|%>
+   <ul>
+        <h2><strong><li> <%= c.name %> </li></strong><h2>
+        <h4><li> <%= c.description %> </li></h4>
+        <h4><li> <%= c.climate %> </li></h4>
+        <h4><li> <%= c.culture %> </li></h4>
+    </ul>
+<% end %>

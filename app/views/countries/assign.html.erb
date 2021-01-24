@@ -1,7 +1,0 @@
-<h1> Pick the country you want to see what other people did in </h1>
-
-<%= form_for(:country, url: "/country", method: :get) do |f| %>
-Name of Country:  <%= f.collection_select :name, Country.all, :id, :name, prompt: true %><br>
-            
-<%= f.submit "See what others have done here" %>
-<% end %>
