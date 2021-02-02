@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # Sessions contoller
   root 'sessions#home'
-
+  get '/welcome', to: 'sessions#welcome'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   

@@ -1,5 +1,7 @@
 <h1><strong> Sign-in </strong></h1>
 
+<%= render partial: "layouts/errors", locals: {object: @user}  %>
+
 <%= form_for(@user, url: "/signin", method: "post") do |f| %>
     Username: <%= f.text_field :username %><br>
     Password: <%= f.password_field :password %><br>

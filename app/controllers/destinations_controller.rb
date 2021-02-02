@@ -2,7 +2,11 @@ class DestinationsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        @destinations = Destination.all
+        if current_user == find_user
+            @destinations = Destination.all
+        else
+            redirect_to root_path
+        end
     end
 
     
@@ -14,7 +18,6 @@ class DestinationsController < ApplicationController
         if current_user == find_user
             @destination = Destination.new    
         else
-            flash[:message]= "no no no"
             render :new
         end
     end
@@ -37,11 +40,10 @@ class DestinationsController < ApplicationController
     end
 
     def update
-        if find_destination
-            @destination.update(destination_params)
+            find_destination
+           if @destination.update(destination_params)
             redirect_to user_destination_path(@destination)
-        else
-            flash[:message] = "did this work?"
+           else
             render :edit
         end
     end
