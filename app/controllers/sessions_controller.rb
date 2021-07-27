@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
 
     def github
         @user = User.github_omniauth(auth)
-        
         if @user.valid?
             session[:user_id] = @user.id
             redirect_to user_path(@user)
